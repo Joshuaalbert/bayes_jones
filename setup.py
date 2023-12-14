@@ -24,7 +24,7 @@ with open("README.md", "r") as fh:
 
 setup(name='bayes_jones',
       version='0.0.1',
-      description='Bayesian inference of Jones matrices',
+      description='Bayesian inference of Jones matrices.',
       long_description=long_description,
       long_description_content_type="text/markdown",
       url="https://github.com/joshuaalbert/bayes_jones",
