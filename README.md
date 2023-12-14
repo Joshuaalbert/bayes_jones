@@ -56,6 +56,7 @@ pip install -r requirements-examples.txt
 pip install .
 ```
 
+
 # Quick start
 
 Checkout the examples [here](https://bayes_jones.readthedocs.io/en/latest/#).
