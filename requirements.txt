@@ -1,0 +1,12 @@
+jax
+jaxlib
+chex
+matplotlib
+numpy
+scipy
+tensorflow_probability
+tqdm
+dm-haiku
+optax
+jaxns>=2.3.0
+tomographic_kernel

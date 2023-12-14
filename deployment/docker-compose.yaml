@@ -1,0 +1,12 @@
+version: "3"
+services:
+  tests:
+    image: bayes_jones:local
+    container_name: bayes_jones
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    env_file:
+      - local.env
+    volumes:
+      - /dev/shm:/dev/shm
