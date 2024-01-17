@@ -3,10 +3,6 @@ jaxlib
 chex
 matplotlib
 numpy
-scipy
 tensorflow_probability
-tqdm
-dm-haiku
-optax
-jaxns>=2.3.0
+jaxns>=2.3.2
 tomographic_kernel
