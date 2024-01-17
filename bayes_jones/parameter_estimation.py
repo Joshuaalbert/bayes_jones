@@ -88,7 +88,7 @@ class ParameterEstimator:
                 return jnp.sum(dist.log_prob(wrapped_diff(phase_obs, phase)))
 
             def prior_model():
-                dtec = yield Prior(tfpd.Cauchy(0., 100.), name='dtec')  # mTECU
+                dtec = yield Prior(tfpd.Uniform(-300., 300.), name='dtec')  # mTECU
                 const = yield Prior(tfpd.Uniform(-jnp.pi, jnp.pi), name='const')  # rad
                 clock = yield Prior(tfpd.Uniform(-2., 2.), name='clock')  # ns
                 uncert = yield Prior(tfpd.HalfNormal(0.5), name='uncert')  # rad
@@ -100,7 +100,7 @@ class ParameterEstimator:
                 return jnp.sum(dist.log_prob(wrapped_diff(phase_obs, phase)))
 
             def prior_model():
-                dtec = yield Prior(tfpd.Cauchy(0., 100.), name='dtec')  # mTECU
+                dtec = yield Prior(tfpd.Uniform(-300, 300.), name='dtec')  # mTECU
                 const = yield Prior(tfpd.Uniform(-jnp.pi, jnp.pi), name='const')  # rad
                 clock = yield Prior(tfpd.Uniform(-2., 2.), name='clock')  # ns
                 uncert = yield Prior(tfpd.HalfNormal(0.5), name='uncert')  # rad
@@ -110,7 +110,7 @@ class ParameterEstimator:
             raise ValueError(f"Unknown noise model {self.noise_model}")
 
         model = Model(prior_model=prior_model, log_likelihood=log_likelihood)
-        ns = DefaultNestedSampler(model=model, num_live_points=model.U_ndims * 64 * 3, max_samples=1e5)
+        ns = DefaultNestedSampler(model=model, max_samples=1e5)
 
         termination_reason, state = ns(key, term_cond=TerminationCondition())
         result = ns.to_results(termination_reason=termination_reason, state=state, trim=False)

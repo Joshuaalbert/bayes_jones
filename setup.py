@@ -7,24 +7,19 @@ install_requires = [
     'jax',
     'jaxlib',
     'chex',
-    'typing_extensions',
     'matplotlib',
     'numpy',
-    'pytest',
-    'scipy',
     'tensorflow_probability',
-    'tqdm',
-    'dm-haiku',
-    'optax',
-    'jaxns>=2.3.0'
+    'jaxns>=2.3.2',
+    'tomographic_kernel'
 ]
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='bayes_jones',
-      version='0.0.1',
-      description='Bayesian inference of Jones matrices',
+      version='0.0.2',
+      description='Bayesian inference of Jones matrices.',
       long_description=long_description,
       long_description_content_type="text/markdown",
       url="https://github.com/joshuaalbert/bayes_jones",
